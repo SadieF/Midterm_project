@@ -1,17 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>WTF - Decision Maker</title>
 
+    <!-- Bootstrap meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Stylesheets -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+
+    <!-- JS and JQuery -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <nav id="nav-bar">
+      <span class="header">WTF</span>
+      <span class="tagline">Where's The Fun?</span>
+    </nav>
+    <main class="container-fluid">
+      <section id="new-poll" class="container">
+          <p class="h1">Create a New Poll:</p>
+          <form id="create-poll" method="POST" action="/polls/">
+            <textarea name="text" placeholder="Where's the Fun? When's the Festival? What's this Friday?" style="width: 75%;"></textarea><br/>
+            <textarea name="text" class="poll-option" placeholder="Option 1"></textarea>
+            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
+            <textarea name="text" class="poll-option" placeholder="Option 2"></textarea>
+            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
+            <textarea name="text" class="poll-option" placeholder="Option 3"></textarea>
+            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
+            <textarea name="text" class="poll-option" placeholder="Option 4"></textarea>
+            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
+            <textarea name="text" class="poll-option" placeholder="Option 5"></textarea>
+            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea></br>
+            <input type="submit" value="CREATE">
+          </form>
+      </section>
+
+    </main>
   </body>
 </html>
