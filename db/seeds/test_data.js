@@ -16,7 +16,7 @@ exports.seed = function(knex, Promise) {
         .insert({ email: 'john@john.john', firstname: 'John', lastname: 'Smith' });
     });
   const createPolls = createAdmin
-    .then((admin) => {
+    .then(([admin]) => {
       return knex('polls').returning('*')
         .insert([
           { admin_id: admin.id, adminurl_random_key: '2wuefkhj', shareurl_random_key: '0sdfljk', name: 'What should we have for dinner?' },
