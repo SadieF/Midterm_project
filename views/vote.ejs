@@ -1,42 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>WTF - Vote</title>
-    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif"/>
 
-    <!-- Bootstrap meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <!-- External Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-
-    <!-- JS and JQuery -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-  </head>
+<head>
+  <title>WTF - Vote</title>
+  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+  <!-- Bootstrap meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- External Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <!-- JS and JQuery -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
 <body>
   <header>
-    <% include ./partials/header %>
+    <% include ./partials/headerbutton %>
   </header>
 
   <main class="container">
+
     <h1><%= poll.name %></h1>
     <% poll.options.forEach(function(option) { %>
       <div class="option">
-        <%= option.title %>
-          <b><%= option.description %></b>
+        <%= option.option %> -
+          <%= option.option_desc%>
+            <b><%= option.description %></b>
       </div>
       <% }) %>
   </main>

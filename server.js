@@ -22,6 +22,8 @@ const usersRoutes = require("./routes/users");
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
 app.use(morgan('dev'));
 
+const dataHelpers = require('./data-helpers')(knex);
+
 // Log knex SQL queries to STDOUT as well
 app.use(knexLogger(knex));
 
@@ -43,38 +45,24 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get('/vote/:poll_id', (req, res) => {
-  // query
-  const { poll_id } = req.params;
 
-  knex('polls').find(poll_id).select().then(poll => {
-    res.render("vote", {
-      poll: {
-        title: "Hello",
-        options: [{
-          title: 'Option 1',
-          description: 'Option 1 Description'
-        }, ]
-      }
-    })
-  });
+app.get('/vote/:id', (req, res) => {
+  const pollWithOptionsPromise = dataHelpers.getPollWithOptionsByShareUrl(req.params.id)
+
+  pollWithOptionsPromise
+    .then(poll => {
+      res.render("vote", { poll });
+    });
 });
 
-app.get('/results/:admin_id', (req, res) => {
-  // query
-  const { poll_id } = req.params;
 
-  knex('polls').find(poll_id).select().then(poll => {
-    res.render("vote", {
-      poll: {
-        title: "Hello",
-        options: [{
-          title: 'Option 1',
-          description: 'Option 1 Description'
-        }, ]
-      }
-    })
-  });
+
+app.get('/2wuefkhj', (req, res) => {
+  const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
+  pollAndScoresPromise
+    .then(score => {
+      res.render("admin", { score });
+    });
 });
 
 
