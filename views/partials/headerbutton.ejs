@@ -1,0 +1,35 @@
+<!-- views/partials/header.ejs -->
+
+<nav id="nav-bar">
+      <span class="header">WTF</span>
+      <span class="tagline">
+        <%
+        var WTF = [
+          "Where's The Fire?",
+          "When's The Fiesta?",
+          "Watch The Film?",
+          "Where's The Fun?",
+          "What's That For?",
+          "What's The Favourite?",
+          "Where's The Fiesta?",
+          "Who's The First?",
+          "Where This Friday?",
+          "When's The Fun?",
+          "When's The Festival?",
+          "Where's The Festival?",
+          "Where's The Function?",
+          "When's The Function?",
+          "What's This Feature?",
+        ]
+
+        function randomWTF() {
+        const randomNumber = Math.floor(Math.random() * (WTF.length));
+        return WTF[randomNumber]
+        }
+        %>
+        <%= randomWTF() %>
+      </span>
+      <button id="create-button" type="submit">
+          <span>Create Poll</span>
+      </button>
+    </nav>
