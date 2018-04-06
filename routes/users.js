@@ -91,7 +91,7 @@ module.exports = (knex) => {
       option_5_desc: req.body.option_5_desc
     };
     //insertData(templateVars);
-    res.redirect('/thankyou')
+    res.redirect('/thanks')
   })
 
   router.get('/thanks', (req, res) => {
