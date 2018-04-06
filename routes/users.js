@@ -39,12 +39,12 @@ module.exports = (knex) => {
     option_1_desc: 'It\'s a game played with a feet and a ball',
     option_2: 'Cricket',
     option_2_desc: 'It\'s a game played with a bat and a ball',
-    option_3: req.body.option_3,
-    option_3_desc: req.body.option_3_desc,
-    option_4: req.body.option_4,
-    option_4_desc: req.body.option_4_desc,
-    option_5: req.body.option_5,
-    option_5_desc: req.body.option_1_desc
+    // option_3: req.body.option_3,
+    // option_3_desc: req.body.option_3_desc,
+    // option_4: req.body.option_4,
+    // option_4_desc: req.body.option_4_desc,
+    // option_5: req.body.option_5,
+    // option_5_desc: req.body.option_1_desc
   };
 
   // insert using promises
@@ -52,19 +52,29 @@ module.exports = (knex) => {
     const adminRandomKey = generateRandomString();
     const shareRandomKey = generateRandomString();
 
-    const insertInfoPromise = knex(nameOfTable).insert([{email:templateVars.email}, {firstname: templateVars.firstName}, {lastname: templateVars.lastName}]);
+    //const insertInfoPromise = knex(nameOfTable).insert([{email:templateVars.email}, {firstname: templateVars.firstName}, {lastname: templateVars.lastName}]);
 
-    const insertDataPromise = insertInfoPromise
-      .then(function (rows) {
-        var adminKey = rows[0]
-        console.log(adminKey);
-        return adminKey;
+
+      knex('admin')
+      .insert({
+        email:templateVars.email,
+        firstname: templateVars.firstName,
+        lastname: templateVars.lastName
       })
-      .then((adminKey) => {
-        console.log('Here are my admins:', AdminKey);
-      })
-      // .then(() => {
-      //   return knex('polls').insert([{adminurl_random_key: adminRandomKey}, {shareurl_random_key: shareRandomKey}, {name: templateVars.title}])})
+      .returning('id')
+      .then((id)=>{
+        console.log('Here are my id for admins:', id);
+        return knex('polls')
+        .insert(
+          {admin_id: id},
+          {adminurl_random_key: adminRandomKey},
+          {shareurl_random_key: shareRandomKey},
+          {name: templateVars.title})
+        })
+        .returning('id')
+        .then((id) => {
+        console.log('Here are my poll_id:', id);
+        })
       // .then((poll_id) => {
       //   knex('options').insert([{option: templateVars.option_1}, {option_1_desc: templateVars.option_1_desc}, {order: 1}])
       //   knex('options').insert([{option: templateVars.option_2}, {option_2_desc: templateVars.option_2_desc}, {order: 2}])
@@ -79,7 +89,7 @@ module.exports = (knex) => {
       console.log('I GOT HERE');
     return insertDataPromise;
   }
-  
+
   router.get("/", (req, res) => {
     knex
     .select("*")
@@ -88,12 +98,10 @@ module.exports = (knex) => {
       res.json(results);
     });
   });
-  
+
   router.post('/', (req, res) => {
     res.redirect('/thankyou')
   })
-  
+
   return router;
 }
-
-insertData(templateVars);
