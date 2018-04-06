@@ -27,11 +27,10 @@
   </head>
 
   <body>
-    <nav id="nav-bar">
-      <span class="header">WTF</span>
-      <span class="tagline">Where's The Fun?</span>
-      <button type="button" class="btn btn-secondary btn-lg">Create Poll</button>
-    </nav>
+    <header>
+    <% include ./partials/headerbutton %>
+    </header>
+
     <main class="container">
       <section id="polladmin">
         <p class="h1"><%= poll.name %></p>

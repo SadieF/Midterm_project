@@ -26,36 +26,10 @@
   </head>
 
   <body>
-    <nav id="nav-bar">
-      <span class="header">WTF</span>
-      <span class="tagline">
-        <%
-        var WTF = [
-          "Where's The Fire?",
-          "When's The Fiesta?",
-          "Watch The Film?",
-          "Where's The Fun?",
-          "What's That For?",
-          "What's The Favourite?",
-          "Where's The Fiesta?",
-          "Who's The First?",
-          "Where This Friday?",
-          "When's The Fun?",
-          "When's The Festival?",
-          "Where's The Festival?",
-          "Where's The Function?",
-          "When's The Function?",
-          "What's This Feature?",
-        ]
+    <header>
+    <% include ./partials/header %>
+    </header>
 
-        function randomWTF() {
-        const randomNumber = Math.floor(Math.random() * (WTF.length));
-        return WTF[randomNumber]
-        }
-        %>
-        <%= randomWTF() %>
-      </span>
-    </nav>
     <main class="container-fluid">
       <section id="new-poll" class="container">
           <form id="create-poll" method="POST" action="/">
@@ -63,7 +37,6 @@
             <div class="form-group">
               <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Name your poll here: When's The Fiesta? Watch This Film? What's The Favourite? ">
             </div>
-            <br/>
             <p class="h2">Provide a few options here:</p>
             <div class="form-group">
               <input type="text" class="form-option form-control" name="option_1" placeholder="Option 1">
@@ -100,11 +73,16 @@
             <div class="form-group">
               <input type="email" class="form-control" name="email" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
             </div><br/>
-            <div>
+            <div class="form-button">
             <button type="button" class="btn btn-secondary btn-lg">Create Poll</button>
           </div>
           </form>
       </section>
+      <div class="card">
+  <div class="card-body">
+    This is some text within a card body.
+  </div>
+</div>
     </main>
   </body>
 </html>
