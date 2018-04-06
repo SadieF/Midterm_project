@@ -32,7 +32,7 @@
 
     <main class="container-fluid">
       <section id="new-poll" class="container">
-          <form id="create-poll" method="POST" action="/">
+          <form id="create-poll" method="POST" action="/poll">
             <p class="h1">So, what do you want to know?</p>
             <div class="form-group">
               <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Name your poll here: When's The Fiesta? Watch This Film? What's The Favourite? ">
@@ -73,8 +73,8 @@
             <div class="form-group">
               <input type="email" class="form-control" name="email" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
             </div><br/>
-            <div class="form-button">
-            <button type="button" class="btn btn-secondary btn-lg">Create Poll</button>
+            <div>
+            <button type="submit" class="btn btn-secondary btn-lg">Create Poll</button>
           </div>
           </form>
       </section>
