@@ -1,7 +1,71 @@
-body {
-  background-color: #EEE;
+@import 'variables';
 
-  h1 {
-    color: #244751;
+
+nav {
+  background-color: lighten($blue, 10%);
+  height: 80px;
+  width: 100%;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  .header {
+    color: $raspberry;
+    font-size: 4em;
+    font-weight: 900;
+    margin: 0em .1em 0em .5em;
   }
+  .tagline {
+    font-size: 1.25em;
+    color: $white;
+    font-weight: 200;
+  }
+}
+
+body {
+  background-color: $pink;
+
+  .h1 {
+    color: $blue;
+    font-weight: 800;
+    font-size: 2em;
+  }
+
+  #new-poll {
+    background-color: $white;
+    border: 0.1em solid $blue;
+    border-radius: 1em;
+    padding: 25px;
+    margin-top: 50px;
+  }
+
+  #form_email {
+    width: 50%;
+    float: right;
+    padding: 1em 0.25em;
+  }
+
+  #firstname {
+    width: 20%;
+    float: left;
+    padding: 1em 0.25em;
+  }
+
+  #lastname {
+    width: 20%;
+    float: left;
+    padding: 1em 0.25em;
+  }
+
+  .form-option {
+    float: left;
+    width: 45%
+  }
+
+  .form-desc {
+    float: right;
+    width: 45%;
+  }
+
 }

@@ -16,11 +16,11 @@ exports.seed = function(knex, Promise) {
         .insert({ email: 'john@john.john', firstname: 'John', lastname: 'Smith' });
     });
   const createPolls = createAdmin
-    .then((admin) => {
+    .then(([admin]) => {
       return knex('polls').returning('*')
         .insert([
-          { admin_id: admin.id, adminURL_random_key: '2wuefkhj', shareURL_random_key: '0sdfljk', name: 'What should we have for dinner?' },
-          { admin_id: admin.id, adminURL_random_key: 'sdfklj23', shareURL_random_key: 'vj78580', name: 'Where should we go on vacation?' }
+          { admin_id: admin.id, adminurl_random_key: '2wuefkhj', shareurl_random_key: '0sdfljk', name: 'What should we have for dinner?' },
+          { admin_id: admin.id, adminurl_random_key: 'sdfklj23', shareurl_random_key: 'vj78580', name: 'Where should we go on vacation?' }
         ]);
     });
   const createOptions = createPolls
@@ -88,25 +88,3 @@ exports.seed = function(knex, Promise) {
 
   return createVotes;
 }
-
-
-
-
-// //When a poll is created:
-// INSERT INTO admin (email, first_name, last_name) VALUES ($1, $2, $3)
-// INSERT INTO polls (adminURL_randomKey, shareURL_randomKey, name) VALUES ($1, $2, $3)
-// //Foreach loop:
-// INSERT INTO options (option, option_desc, order) VALUES ($1, $2, $3)
-
-// //When we re-direct them to the admin page:
-// SELECT polls.name, options.option, options.option_desc, options.order, votes.score
-// FROM polls
-// JOIN options
-// ON options.polls_id=polls.id
-// JOIN votes
-// ON options.id=votes.option_id
-// WHERE adminURL_randomKey=req.params.id
-// return knex.schema.dropTable('admin');
-// return knex.schema.dropTable('polls');
-// return knex.schema.dropTable('options');
-// return knex.schema.dropTable('votes');
