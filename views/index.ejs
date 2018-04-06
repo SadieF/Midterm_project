@@ -22,62 +22,89 @@
 
     <!-- JS and JQuery -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
 
   </head>
 
   <body>
     <nav id="nav-bar">
       <span class="header">WTF</span>
-      <span class="tagline">Where's The Fun?</span>
+      <span class="tagline">
+        <%
+        var WTF = [
+          "Where's The Fire?",
+          "When's The Fiesta?",
+          "Watch The Film?",
+          "Where's The Fun?",
+          "What's That For?",
+          "What's The Favourite?",
+          "Where's The Fiesta?",
+          "Who's The First?",
+          "Where This Friday?",
+          "When's The Fun?",
+          "When's The Festival?",
+          "Where's The Festival?",
+          "Where's The Function?",
+          "When's The Function?",
+          "What's This Feature?",
+        ]
+
+        function randomWTF() {
+        const randomNumber = Math.floor(Math.random() * (WTF.length));
+        return WTF[randomNumber]
+        }
+        %>
+        <%= randomWTF() %>
+      </span>
     </nav>
     <main class="container-fluid">
       <section id="new-poll" class="container">
-          <form id="create-poll" method="POST" action="/polls/">
-            <p class="h1">Create a New Poll:</p>
+          <form id="create-poll" method="POST" action="/">
+            <p class="h1">So, what do you want to know?</p>
             <div class="form-group">
-              <input type="text" id="form_pollname" class="form-control" placeholder="So, What's The Favourite? When's The Fiesta?">
+              <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Name your poll here: When's The Fiesta? Watch This Film? What's The Favourite? ">
+            </div>
+            <br/>
+            <p class="h2">Provide a few options here:</p>
+            <div class="form-group">
+              <input type="text" class="form-option form-control" name="option_1" placeholder="Option 1">
+              <input type="text" class="form-desc form-control" name="option_1_desc" placeholder="Description">
             </div>
             <br/>
             <div class="form-group">
-              <input type="text" class="form-option form-control" placeholder="Option 1">
-              <input type="text" class="form-desc form-control" placeholder="Description">
+              <input type="text" class="form-option form-control" name="option_2"placeholder="Option 2">
+              <input type="text" class="form-desc form-control" name="option_2_desc" placeholder="Description">
             </div>
             <br/>
             <div class="form-group">
-              <input type="text" class="form-option form-control" placeholder="Option 2">
-              <input type="text" class="form-desc form-control" placeholder="Description">
+              <input type="text" class="form-option form-control" name="option_3" placeholder="Option 3">
+              <input type="text" class="form-desc form-control" name="option_3_desc" placeholder="Description">
             </div>
             <br/>
             <div class="form-group">
-              <input type="text" class="form-option form-control" placeholder="Option 3">
-              <input type="text" class="form-desc form-control" placeholder="Description">
+              <input type="text" class="form-option form-control" name="option_4" placeholder="Option 4">
+              <input type="text" class="form-desc form-control" name="option_4_desc" placeholder="Description">
             </div>
             <br/>
             <div class="form-group">
-              <input type="text" class="form-option form-control" placeholder="Option 4">
-              <input type="text" class="form-desc form-control" placeholder="Description">
+              <input type="text" class="form-option form-control" name="option_5" placeholder="Option 5">
+              <input type="text" class="form-desc form-control" name="option_5_desc" placeholder="Description">
             </div>
             <br/>
-            <div class="form-group">
-              <input type="text" class="form-option form-control" placeholder="Option 5">
-              <input type="text" class="form-desc form-control" placeholder="Description">
-            </div>
-            <br/>
+            <p class="h2">Tell us a bit about you:</p>
              <div class="form-group">
-              <input type="text" id="firstname" class="form-control" placeholder="First Name">
+              <input type="text" id="firstname" name="firstname" class="form-name form-control" placeholder="First Name">
             </div>
             <div class="form-group">
-              <input type="text" id="lastname" class="form-control" placeholder="Last Name">
+              <input type="text" id="lastname" name="lastname" class="form-name form-control" placeholder="Last Name">
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone.</small>
+              <input type="email" class="form-control" name="email" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
             </div><br/>
-            <input type="button" class="btn btn-primary" value="CREATE">
+            <div>
+            <button type="button" class="btn btn-secondary btn-lg">Create Poll</button>
+          </div>
           </form>
       </section>
-
     </main>
   </body>
 </html>

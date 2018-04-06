@@ -3,7 +3,7 @@
 
 nav {
   background-color: lighten($blue, 10%);
-  height: 80px;
+  height: 100px;
   width: 100%;
   align-content: center;
   position: fixed;
@@ -16,6 +16,7 @@ nav {
     font-weight: 900;
     margin: 0em .1em 0em .5em;
   }
+
   .tagline {
     font-size: 1.25em;
     color: $white;
@@ -24,7 +25,7 @@ nav {
 }
 
 body {
-  background-color: $pink;
+  background-color: $white;
 
   .h1 {
     color: $blue;
@@ -32,30 +33,39 @@ body {
     font-size: 2em;
   }
 
+  .h2 {
+    color: $blue;
+    font-weight: 800;
+    font-size: 1.25em;
+    padding: .5em 0em;
+  }
+
+  .container-fluid {
+    width: 70%;
+  }
+
   #new-poll {
     background-color: $white;
-    border: 0.1em solid $blue;
+    border: 0.1em solid $grey;
     border-radius: 1em;
     padding: 25px;
-    margin-top: 50px;
+    margin-top: 120px;
   }
 
   #form_email {
-    width: 50%;
+    width: 45%;
     float: right;
-    padding: 1em 0.25em;
   }
 
-  #firstname {
-    width: 20%;
-    float: left;
-    padding: 1em 0.25em;
+  #email-help {
+    float:right;
+    display: inline-block;
+    float:  right;
   }
 
-  #lastname {
-    width: 20%;
+  .form-name {
+    width: 25%;
     float: left;
-    padding: 1em 0.25em;
   }
 
   .form-option {
