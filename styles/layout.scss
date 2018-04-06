@@ -1,7 +1,47 @@
-body {
-  background-color: #EEE;
+@import 'variables';
 
-  h1 {
-    color: #244751;
+
+nav {
+  background-color: lighten($blue, 10%);
+
+  .header {
+    color: $raspberry;
+    font-size: 4em;
+    font-weight: 900;
+    margin: 0em .1em 0em .5em;
   }
+  .tagline {
+    font-size: 1.25em;
+    color: $white;
+    font-weight: 200;
+  }
+}
+
+body {
+  background-color: $pink;
+
+  .h1 {
+    color: $blue;
+    font-weight: 800;
+    font-size: 2em;
+  }
+
+  #new-poll {
+    background-color: $white;
+    border: 0.1em solid $blue;
+    border-radius: 1em;
+    padding: 25px;
+    margin-top: 50px;
+  }
+
+  .form-option {
+    float: left;
+    width: 45%
+  }
+
+  .form-desc {
+    float: right;
+    width: 45%;
+  }
+
 }

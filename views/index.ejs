@@ -2,19 +2,23 @@
 <html lang="en">
   <head>
     <title>WTF - Decision Maker</title>
+    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif"/>
 
     <!-- Bootstrap meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- CSS Stylesheets -->
+    <!-- Bootstrap CSS -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
     <!-- External Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
     <!-- JS and JQuery -->
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
@@ -29,20 +33,48 @@
     </nav>
     <main class="container-fluid">
       <section id="new-poll" class="container">
-          <p class="h1">Create a New Poll:</p>
           <form id="create-poll" method="POST" action="/polls/">
-            <textarea name="text" placeholder="Where's the Fun? When's the Festival? What's this Friday?" style="width: 75%;"></textarea><br/>
-            <textarea name="text" class="poll-option" placeholder="Option 1"></textarea>
-            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
-            <textarea name="text" class="poll-option" placeholder="Option 2"></textarea>
-            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
-            <textarea name="text" class="poll-option" placeholder="Option 3"></textarea>
-            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
-            <textarea name="text" class="poll-option" placeholder="Option 4"></textarea>
-            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea><br/>
-            <textarea name="text" class="poll-option" placeholder="Option 5"></textarea>
-            <textarea name="text" class="poll-option-desc" placeholder="Description (Optional)"></textarea></br>
-            <input type="submit" value="CREATE">
+             <div class="form-group">
+              <input type="text" id="firstname" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <input type="text" id="lastname" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone.</small>
+            </div>
+            <p class="h1">Create a New Poll:</p>
+            <div class="form-group">
+              <input type="text" id="form_pollname" class="form-control" placeholder="So, What's The Favourite? When's The Fiesta?">
+            </div>
+            <br/>
+            <div class="form-group">
+              <input type="text" class="form-option form-control" placeholder="Option 1">
+              <input type="text" class="form-desc form-control" placeholder="Description">
+            </div>
+            <br/>
+            <div class="form-group">
+              <input type="text" class="form-option form-control" placeholder="Option 2">
+              <input type="text" class="form-desc form-control" placeholder="Description">
+            </div>
+            <br/>
+            <div class="form-group">
+              <input type="text" class="form-option form-control" placeholder="Option 3">
+              <input type="text" class="form-desc form-control" placeholder="Description">
+            </div>
+            <br/>
+            <div class="form-group">
+              <input type="text" class="form-option form-control" placeholder="Option 4">
+              <input type="text" class="form-desc form-control" placeholder="Description">
+            </div>
+            <br/>
+            <div class="form-group">
+              <input type="text" class="form-option form-control" placeholder="Option 5">
+              <input type="text" class="form-desc form-control" placeholder="Description">
+            </div>
+            <br/>
+            <input type="button" class="btn btn-primary" value="CREATE">
           </form>
       </section>
 
