@@ -3,6 +3,12 @@
 
 nav {
   background-color: lighten($blue, 10%);
+  height: 80px;
+  width: 100%;
+  align-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 
   .header {
     color: $raspberry;
@@ -32,6 +38,24 @@ body {
     border-radius: 1em;
     padding: 25px;
     margin-top: 50px;
+  }
+
+  #form_email {
+    width: 50%;
+    float: right;
+    padding: 1em 0.25em;
+  }
+
+  #firstname {
+    width: 20%;
+    float: left;
+    padding: 1em 0.25em;
+  }
+
+  #lastname {
+    width: 20%;
+    float: left;
+    padding: 1em 0.25em;
   }
 
   .form-option {

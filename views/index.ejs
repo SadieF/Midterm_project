@@ -34,16 +34,6 @@
     <main class="container-fluid">
       <section id="new-poll" class="container">
           <form id="create-poll" method="POST" action="/polls/">
-             <div class="form-group">
-              <input type="text" id="firstname" class="form-control" placeholder="First Name">
-            </div>
-            <div class="form-group">
-              <input type="text" id="lastname" class="form-control" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone.</small>
-            </div>
             <p class="h1">Create a New Poll:</p>
             <div class="form-group">
               <input type="text" id="form_pollname" class="form-control" placeholder="So, What's The Favourite? When's The Fiesta?">
@@ -74,6 +64,16 @@
               <input type="text" class="form-desc form-control" placeholder="Description">
             </div>
             <br/>
+             <div class="form-group">
+              <input type="text" id="firstname" class="form-control" placeholder="First Name">
+            </div>
+            <div class="form-group">
+              <input type="text" id="lastname" class="form-control" placeholder="Last Name">
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone.</small>
+            </div><br/>
             <input type="button" class="btn btn-primary" value="CREATE">
           </form>
       </section>
