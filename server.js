@@ -60,6 +60,24 @@ app.get('/vote/:poll_id', (req, res) => {
   });
 });
 
+app.get('/results/:admin_id', (req, res) => {
+  // query
+  const { poll_id } = req.params;
+
+  knex('polls').find(poll_id).select().then(poll => {
+    res.render("vote", {
+      poll: {
+        title: "Hello",
+        options: [{
+          title: 'Option 1',
+          description: 'Option 1 Description'
+        }, ]
+      }
+    })
+  });
+});
+
+
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
