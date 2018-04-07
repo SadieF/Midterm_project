@@ -109,7 +109,7 @@ module.exports = (knex) => {
       var adminURL = adminRandomKey;
       var shareURL = shareRandomKey;
       var data = {
-        from: "Where's The Fun? <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
+        from: "WTF? <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
         to: `${templateVars.email}`,
         subject: "Well That's Fabulous! Your poll has been created!",
         text: 'Testing some Mailgun awesomness!',

@@ -35,9 +35,9 @@
     <main class="container-fluid">
       <section id="new-poll" class="container">
           <form id="create-poll" method="POST" action="/poll">
-            <p class="h1">So, what do you want to know?</p>
+            <p class="h1">So, what would you like to know?</p>
             <div class="form-group">
-              <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Name your poll here: When's The Fiesta? Watch This Film? What's The Favourite? ">
+              <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Give your poll a name. May we suggest: When's The Fiesta? What's The Favourite? ">
             </div>
             <p class="h2">Provide a few options here:</p>
             <div class="form-group">
@@ -46,7 +46,7 @@
             </div>
             <br/>
             <div class="form-group">
-              <input type="text" class="form-option form-control" name="option_2"placeholder="Option 2">
+              <input type="text" class="form-option form-control" name="option_2" placeholder="Option 2">
               <input type="text" class="form-desc form-control" name="option_2_desc" placeholder="Description">
             </div>
             <br/>
@@ -75,16 +75,11 @@
             <div class="form-group">
               <input type="email" class="form-control" name="email" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
             </div><br/>
-            <div>
+            <div id="form-button">
             <button type="submit" class="btn btn-secondary btn-lg">Create Poll</button>
           </div>
           </form>
       </section>
-      <div class="card">
-  <div class="card-body">
-    This is some text within a card body.
-  </div>
-</div>
     </main>
   </body>
 </html>
