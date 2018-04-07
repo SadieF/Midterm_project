@@ -32,13 +32,17 @@ module.exports = function(knex) {
   }
 
   function getScoresByAdminUrl(adminUrl) {
-    return knex('options')
-      .select('options.*', 'votes.*')
+    const query = knex('options')
+      .select('options.*')
+      .sum('votes.score as score')
       .join('polls', 'polls.id', 'options.poll_id')
       .join('votes', 'votes.option_id', 'options.id')
-      .where({ 'polls.adminurl_random_key': adminURL })
-      .orderBy('votes.score', 'desc');
+      .where({ 'polls.adminurl_random_key': adminUrl })
+      .groupBy('options.id', 'options.poll_id', 'options.option', 'options.option_desc', 'options.order');
+    console.log('Query', query.toSQL());
+    return query;
   }
+
 
   function getPollWithOptionsAndScoresByAdminURL(adminUrl) {
     const adminPollPromise = getPollByAdminUrl(adminUrl);
