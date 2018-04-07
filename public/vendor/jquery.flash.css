@@ -36,7 +36,7 @@
   position: absolute;
   height: 30px;
   width: 30px;
-  background: url('close.png') top left no-repeat;
+  background: url('/images/close.png') top left no-repeat;
   cursor: pointer;
   z-index: 181;
 }
