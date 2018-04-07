@@ -19,6 +19,7 @@
   <!-- JS and JQuery -->
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 </head>
 
 <body>
@@ -27,15 +28,19 @@
   </header>
 
   <main class="container">
-
-    <h1><%= poll.name %></h1>
+    <form id="form-vote">
+    <p class="h1" id="pollname"><%= poll.name %></p>
     <% poll.options.forEach(function(option) { %>
-      <div class="option">
-        <%= option.option %> -
-          <%= option.option_desc%>
-            <b><%= option.description %></b>
+      <div class="card">
+        <div class="card-body">
+          <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
+          <input type='hidden' name='option' value='<%= option.id %>'/>
+        </div>
+      </div>
       </div>
       <% }) %>
+    <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
+    </form>
   </main>
 </body>
 
