@@ -1,65 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>WTF - Decision Maker</title>
-    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif"/>
 
-    <!-- Bootstrap meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>WTF - Decision Maker</title>
+  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+  <!-- Bootstrap meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- External Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <!-- JS and JQuery -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
 
-    <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <!-- External Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-
-    <!-- JS and JQuery -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-
-  </head>
-
-  <body>
-    <header>
-    <% include ./partials/headerbutton %>
-    </header>
-
-    <main class="container">
-      <section id="polladmin">
-        <p class="h1"><%= poll.name %></p>
-        <% poll.options.forEach(function (option) { %>
+<body>
+  <nav id="nav-bar">
+    <span class="header">WTF</span>
+    <span class="tagline">Where's The Fun?</span>
+    <button type="submit" class="btn btn-secondary btn-lg">Create Poll</button>
+  </nav>
+  <main class="container" style="margin-top:150px">
+    <section id="polladmin">
+      <p class="h1">
+        <%= poll.name %>
+      </p>
+      <% poll.adminScores.forEach(function(option) { %>
         <div class="card">
           <div class="card-body">
-             <% Option 1 %>
+            <%= option.option %>
           </div>
         </div>
-
         <div id="accordion">
           <div class="card">
             <div class="card-header" id="headingOne">
               <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  <%= option %>
+                <%= option.option_desc%>
                 </button>
               </h5>
             </div>
-
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
-                <%= option description%>
+                <%= option.score %>
               </div>
             </div>
           </div>
-        <% }) %>
-      </section>
+          <% }) %>
+    </section>
+  </main>
+</body>
 
-    </main>
-  </body>
 </html>
