@@ -83,20 +83,26 @@ body {
     margin-top: 120px;
   }
 
-  #form_email {
-    width: 45%;
+  #email {
+    width: 48%;
     float: right;
+    margin: 0em 0em 0em .125em;
   }
 
-  #email-help {
-    float:right;
-    display: inline-block;
-    float:  right;
+  .form-control {
+    margin-top: .25em;
   }
 
-  .form-name {
+  #firstname {
     width: 25%;
     float: left;
+    margin: 0em .125em 0em 0em;
+  }
+
+  #lastname {
+    width: 25%;
+    float: left;
+    margin: 0em 0em 0em .125em;
   }
 
   .form-option {
