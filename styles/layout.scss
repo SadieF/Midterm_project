@@ -141,4 +141,23 @@ body {
     margin-top: 1em;
     margin-bottom: 1em;
   }
+
+  .thankyou {
+    font: 400 100px/1.5 'Pacifico', Helvetica, sans-serif;
+    color: $raspberry;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+    margin: auto;
+  }
+
+  .thanks {
+    font-size: 6em;
+    font-weight: 900;
+    color: $blue;
+  }
+
+  .featureletter {
+    font-size: 6em;
+    font-weight: 900;
+    color: $blue;
+  }
 }
