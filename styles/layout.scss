@@ -9,6 +9,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: 1;
+  cursor: default;
 
   .header {
     color: $raspberry;
@@ -56,14 +57,15 @@ nav {
 body {
   background-color: $white;
   margin-top: 150px;
+  cursor: default;
 
-  .h1 {
+  h1 {
     color: $blue;
     font-weight: 800;
     font-size: 2em;
   }
 
-  .h2 {
+  h2 {
     color: $blue;
     font-weight: 800;
     font-size: 1.25em;
@@ -83,20 +85,26 @@ body {
     margin-top: 120px;
   }
 
-  #form_email {
-    width: 45%;
+  #email {
+    width: 48%;
     float: right;
+    margin: 0em 0em 0em .125em;
   }
 
-  #email-help {
-    float:right;
-    display: inline-block;
-    float:  right;
+  .form-control {
+    margin-top: .25em;
   }
 
-  .form-name {
+  #firstname {
     width: 25%;
     float: left;
+    margin: 0em .125em 0em 0em;
+  }
+
+  #lastname {
+    width: 25%;
+    float: left;
+    margin: 0em 0em 0em .125em;
   }
 
   .form-option {
@@ -115,7 +123,8 @@ body {
   }
 
   .form-group {
-    margin-bottom: 0em;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
   }
 
   #pollname {
@@ -140,5 +149,17 @@ body {
     margin: auto;
     margin-top: 1em;
     margin-bottom: 1em;
+    cursor: pointer;
+  }
+
+  .shoutout {
+    font: 400 100px/1.5 'Pacifico', Helvetica, sans-serif;
+    color: $blue;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+    text-align: center;
+  }
+
+  .featureletter {
+    color: $raspberry;
   }
 }

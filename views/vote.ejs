@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>WTF - Vote</title>
-  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+  <title>WTF - <%= poll.name %></title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif"/>
+
   <!-- Bootstrap meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,26 +25,29 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 </head>
 
-<body>
-  <header>
-    <% include ./partials/headerbutton %>
-  </header>
+  <body>
+    <header>
+      <% include ./partials/headerbutton %>
+    </header>
 
-  <main class="container">
-    <form id="form-vote">
-    <p class="h1" id="pollname"><%= poll.name %></p>
-    <% poll.options.forEach(function(option) { %>
-      <div class="card">
-        <div class="card-body">
-          <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
-          <input type='hidden' name='option' value='<%= option.id %>'/>
+    <main class="container">
+      <form id="form-vote">
+        <h1 id="pollname"><%= poll.name %></h1>
+        <% poll.options.forEach(function(option) { %>
+          <% if (option.option !== '') { %>
+            <div class="card">
+              <div class="card-body">
+                <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
+                <input type='hidden' name='option' value='<%= option.id %>'/>
+              </div>
+            </div>
+          <% }%>
+        <% }) %>
+        <div class="form-button">
+          <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
         </div>
-      </div>
-      </div>
-      <% }) %>
-    <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
-    </form>
-  </main>
-</body>
+      </form>
+    </main>
+  </body>
 
 </html>

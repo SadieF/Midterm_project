@@ -57,6 +57,7 @@ app.get('/vote/:id', (req, res) => {
     console.log('REQ.PARAMS.ID:',req.params.id);
 });
 
+<<<<<<< HEAD
 // POST: shareable link
 app.post('/vote/:id', (req, res) => {
 
@@ -97,6 +98,8 @@ app.post('/vote/:id', (req, res) => {
 
 
 // For the admin
+=======
+>>>>>>> 60e0d9902f517035fad7fb4529f25c092a1b4d07
 app.get('/:id', (req, res) => {
   const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
   pollAndScoresPromise
