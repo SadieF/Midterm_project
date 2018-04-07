@@ -52,6 +52,7 @@ app.get('/vote/:id', (req, res) => {
   pollWithOptionsPromise
     .then(poll => {
       res.render("vote", { poll });
+      console.log({ poll });
     });
 });
 

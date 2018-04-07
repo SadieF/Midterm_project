@@ -27,15 +27,18 @@
   </header>
 
   <main class="container">
-
-    <h1><%= poll.name %></h1>
+    <form>
+    <p class="h1" id="pollname"><%= poll.name %></p>
     <% poll.options.forEach(function(option) { %>
-      <div class="option">
-        <%= option.option %> -
-          <%= option.option_desc%>
-            <b><%= option.description %></b>
+      <div class="card">
+        <div class="card-body">
+          <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
+        </div>
+      </div>
       </div>
       <% }) %>
+    <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
+    </form>
   </main>
 </body>
 

@@ -13,30 +13,35 @@ exports.seed = function(knex, Promise) {
   const createAdmin = deleteAllDataPrms
     .then(() => {
       return knex('admin').returning('*')
-        .insert({ email: 'john@john.john', firstname: 'John', lastname: 'Smith' });
+        .insert({ email: 'john@john.john', firstname: 'John', lastname: 'Smith' },
+          {email: 'wendy@wendy.com', firstname: 'Wendy', lastname: 'Rules'});
     });
   const createPolls = createAdmin
     .then(([admin]) => {
       return knex('polls').returning('*')
         .insert([
           { admin_id: admin.id, adminurl_random_key: '2wuefkhj', shareurl_random_key: '0sdfljk', name: 'What should we have for dinner?' },
-          { admin_id: admin.id, adminurl_random_key: 'sdfklj23', shareurl_random_key: 'vj78580', name: 'Where should we go on vacation?' }
+          { admin_id: admin.id, adminurl_random_key: 'sdfklj23', shareurl_random_key: 'vj78580', name: 'Where should we go on vacation?' },
+          { admin_id: admin.id, adminurl_random_key: 'b12345y', shareurl_random_key: 'a12345z', name: 'What should I wear tonight?' }
         ]);
     });
   const createOptions = createPolls
     .then(([dinnerPoll, vacationPoll]) => {
       return knex('options').returning('*')
         .insert([
-          { polls_id: dinnerPoll.id, option: 'Sushi', option_desc: 'Avocado rolls', order: 1 },
-          { polls_id: dinnerPoll.id, option: 'Pizza', option_desc: 'Cheese', order: 2 },
-          { polls_id: dinnerPoll.id, option: 'Italian', option_desc: 'Pasta', order: 3 },
-          { polls_id: dinnerPoll.id, option: 'Subway', option_desc: '', order: 4 },
-          { polls_id: dinnerPoll.id, option: 'Mexican', option_desc: 'Nachos', order: 5 },
-          { polls_id: vacationPoll.id, option: 'Japan', option_desc: 'Tokyo', order: 5 },
-          { polls_id: vacationPoll.id, option: 'Spain', option_desc: 'Madrid', order: 4 },
-          { polls_id: vacationPoll.id, option: 'Portugal', option_desc: 'Porto', order: 3 },
-          { polls_id: vacationPoll.id, option: 'Greece', option_desc: 'Athens', order: 2 },
-          { polls_id: vacationPoll.id, option: 'France', option_desc: 'Nice', order: 1 },
+          { poll_id: dinnerPoll.id, option: 'Sushi', option_desc: 'Avocado rolls', order: 1 },
+          { poll_id: dinnerPoll.id, option: 'Pizza', option_desc: 'Cheese', order: 2 },
+          { poll_id: dinnerPoll.id, option: 'Italian', option_desc: 'Pasta', order: 3 },
+          { poll_id: dinnerPoll.id, option: 'Subway', option_desc: '', order: 4 },
+          { poll_id: dinnerPoll.id, option: 'Mexican', option_desc: 'Nachos', order: 5 },
+          { poll_id: vacationPoll.id, option: 'Japan', option_desc: 'Tokyo', order: 5 },
+          { poll_id: vacationPoll.id, option: 'Spain', option_desc: 'Madrid', order: 4 },
+          { poll_id: vacationPoll.id, option: 'Portugal', option_desc: 'Porto', order: 3 },
+          { poll_id: vacationPoll.id, option: 'Greece', option_desc: 'Athens', order: 2 },
+          { poll_id: vacationPoll.id, option: 'France', option_desc: 'Nice', order: 1 },
+          { poll_id: clothesPoll.id, option: 'Dress', option_desc: 'A blue dress with a black collar', order: 1 },
+          { poll_id: clothesPoll.id, option: 'Pants', option_desc: 'Black jeans and a nice top', order: 2 },
+          { poll_id: clothesPoll.id, option: 'Nothing', option_desc: 'Rock the birthday suit because, why not?!', order: 3 }
         ]);
     });
   const createVotes = createOptions
@@ -82,6 +87,18 @@ exports.seed = function(knex, Promise) {
           { option_id: vP5.id, score: 2 },
           { option_id: vP5.id, score: 1 },
           { option_id: vP5.id, score: 3 },
+
+          { option_id: cP1.id, score: 1 },
+          { option_id: cP1.id, score: 1 },
+          { option_id: cP1.id, score: 1 },
+
+          { option_id: cP2.id, score: 2 },
+          { option_id: cP2.id, score: 2 },
+          { option_id: cP2.id, score: 3 },
+
+          { option_id: cP3.id, score: 3 },
+          { option_id: cP3.id, score: 3 },
+          { option_id: cP3.id, score: 2 }
         ])
 
     })
