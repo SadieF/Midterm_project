@@ -5,7 +5,10 @@ const router = express.Router();
 
 var api_key = 'key-53af461a44e0d2292e1def1205f95c8a';
 var DOMAIN = 'sandbox776e0d067094447ca8a251aff144199a.mailgun.org';
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: DOMAIN});
+var mailgun = require('mailgun-js')({
+  apiKey: api_key,
+  domain: DOMAIN
+});
 
 // Creates a random alphanumeric string
 function generateRandomString() {
@@ -101,24 +104,25 @@ module.exports = (knex) => {
           console.log("err", err);
         })
 
-    ////////////////////
-    var pollname = templateVars.title;
-    var adminURL = adminRandomKey;
-    var shareURL = shareRandomKey;
-    var data = {
-      from: "Where's The Fun? <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
-      to: `${templateVars.email}`,
-      subject: "Well That's Fabulous! Your poll has been created!",
-      text: 'Testing some Mailgun awesomness!',
-      html: `<html><h1>${pollname}</h1><p>You've created a new poll!</p>
- <p>To look at your poll and see how people are voting, <a href="${adminURL}" target="_blank">click here</a>.</p>
- <p>To share your poll with friends, copy and paste this link to emails, social media, a billboard, etc.</p>
- <p>Share link: <a href="${shareURL}" target="_blank">${shareURL}</a></p></html>`,
-    };
+      // Mailbox data
+      var pollname = templateVars.title;
+      var adminURL = adminRandomKey;
+      var shareURL = shareRandomKey;
+      var data = {
+        from: "Where's The Fun? <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
+        to: `${templateVars.email}`,
+        subject: "Well That's Fabulous! Your poll has been created!",
+        text: 'Testing some Mailgun awesomness!',
+        html: `<html><h1>${pollname}</h1><p>You've created a new poll!</p>
+          <p>To look at your poll and see how people are voting, <a href="${adminURL}" target="_blank">click here</a>.</p>
+          <p>To share your poll with friends, copy and paste this link to emails, social media, a billboard, etc.</p>
+          <p>Share link: <a href="${shareURL}" target="_blank">${shareURL}</a></p></html>`,
+      };
 
-    mailgun.messages().send(data, function (error, body) {
-      console.log(body);
-    });
+      mailgun.messages().send(data, function (error, body) {
+        console.log(body);
+      });
+
     }
 
     insertData(templateVars);
