@@ -58,8 +58,6 @@ app.get('/vote/:id', (req, res) => {
     });
 });
 
-
-
 app.get('/:id', (req, res) => {
   const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
   pollAndScoresPromise
