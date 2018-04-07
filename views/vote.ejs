@@ -24,29 +24,30 @@
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
 </head>
+  <body>
+    <header>
+      <% include ./partials/headerbutton %>
+    </header>
 
-<body>
-  <header>
-    <% include ./partials/headerbutton %>
-  </header>
-  <main class="container">
-    <form id="form-vote">
-      <h1 id="pollname"><%= poll.name %></h1>
-      <% poll.options.forEach(function(option) { %>
-        <% if (option.option !== '') { %>
-          <div class="card">
-            <div class="card-body">
-              <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
-              <input type='hidden' name='option' value='<%= option.id %>' />
+    <main class="container">
+      <form id="form-vote" method="POST" action="/vote">
+        <h1 id="pollname"><%= poll.name %></h1>
+        <p id="voteintro">Drag and drop the options below to re-order according to your preference. Your favourite option should be on top, then your next favourite, and so on. Once you're happy with the order, click the <b>Vote Now!</b> button below to cast your vote.</p>
+        <% poll.options.forEach(function(option) { %>
+          <% if (option.option !== '') { %>
+            <div class="card">
+              <div class="card-body">
+                <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
+                <input type='hidden' name='option' value='<%= option.id %>'/>
+              </div>
             </div>
           </div>
           <% }%>
-            <% }) %>
-              <div class="form-button">
-                <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
-              </div>
-    </form>
-  </main>
-</body>
-
+        <% }) %>
+        <div class="form-button">
+          <button type="submit" id="votebutton" class="btn btn-secondary btn-lg">Vote Now!</button>
+        </div>
+      </form>
+    </main>
+  </body>
 </html>

@@ -38,10 +38,10 @@ module.exports = function(knex) {
       .join('polls', 'polls.id', 'options.poll_id')
       .join('votes', 'votes.option_id', 'options.id')
       .where({ 'polls.adminurl_random_key': adminUrl })
-      .groupBy('options.id', 'options.poll_id', 'options.option', 'options.option_desc', 'options.order');
+      .groupBy('options.id', 'options.poll_id', 'options.option', 'options.option_desc', 'options.order')
+      .orderBy('score', 'DESC');
     return query;
   }
-
 
   function getPollWithOptionsAndScoresByAdminURL(adminUrl) {
     const adminPollPromise = getPollByAdminUrl(adminUrl);
