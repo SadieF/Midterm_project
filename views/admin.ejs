@@ -32,8 +32,7 @@
   <main class="container">
     <section id="polladmin">
        <h1 id="pollname"><%= poll.name %></h1>
-       <%= JSON.stringify({poll}) %>
-        <h4>Based on <%= poll.count %></h4>
+        <!-- <h4>Based on <%= poll.count %></h4> -->
         <% poll.adminScores.forEach(function(option) { %>
           <% if (option.option !== '') { %>
             <div class="card">
