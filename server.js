@@ -50,13 +50,15 @@ app.get("/", (req, res) => {
 
 app.get('/vote/:id', (req, res) => {
   const pollWithOptionsPromise = dataHelpers.getPollWithOptionsByShareUrl(req.params.id)
-
   pollWithOptionsPromise
     .then(poll => {
-      res.render("vote", { poll });
-      console.log({ poll });
+      if (req.params.id != poll.shareurl_random_key) {
+        res.render("404");
+      } else {
+        res.render("vote", { poll });
+      }
     });
-});
+})
 
 app.get('/:id', (req, res) => {
   const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)

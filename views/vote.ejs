@@ -26,22 +26,23 @@
   <header>
     <% include ./partials/headerbutton %>
   </header>
-
   <main class="container">
     <form id="form-vote">
-    <p class="h1" id="pollname"><%= poll.name %></p>
-    <% poll.options.forEach(function(option) { %>
-      <% if (option.option !== '') { %>
-      <div class="card">
-        <div class="card-body">
-          <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
-          <input type='hidden' name='option' value='<%= option.id %>'/>
-        </div>
-      </div>
-      </div>
-        <% }%>
-      <% }) %>
-    <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
+      <p class="h1" id="pollname">
+        <%= poll.name %>
+      </p>
+      <% poll.options.forEach(function(option) { %>
+        <% if (option.option !== '') { %>
+          <div class="card">
+            <div class="card-body">
+              <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
+              <input type='hidden' name='option' value='<%= option.id %>' />
+            </div>
+          </div>
+          </div>
+          <% }%>
+            <% }) %>
+              <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
     </form>
   </main>
 </body>
