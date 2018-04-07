@@ -38,10 +38,12 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 
 // Mount all resource routes
-app.use("/api/users", usersRoutes(knex));
+app.use("/poll", usersRoutes(knex));
+console.log('I GOT HERE -1');
 
 // Home page
 app.get("/", (req, res) => {
+  console.log('WE ARE IN HOME PAGE');
   res.render("index");
 });
 
