@@ -8,11 +8,43 @@ $(() => {
 
   $('#form-vote').sortable();
 
+  $('span.header').on('click', (e) => {
+    e.preventDefault();
+    window.location.replace("/") //doesn't work
+  })
+
+  $('button#create-button').on('click', (e) => {
+    e.preventDefault();
+    window.location.replace("/") //doesn't work
+
+  })
+
+  $('button').on('submit', (e) => {
+    e.preventDefault();
+    const text = ('#form_email').val().trim();
+    if (text === '') {
+      $.flash("What's This Foolishness?! Please enter your email so we can send you your share link!");
+    } else {
+      alert('Win!');
+    }
+  })
+
+  // $('#form_email').on('mouseover', (e) => {
+  //   e.preventDefault();
+  //   $.flash("Rawr");
+  // })
+
+
 
 })
 
-// $('.button.btn.btn-secondary.btn-lg').on('submit', function(e) {
-//     e.preventDefault();
-//     const text = $(this).find('.input#form_email').val().trim();
+
+// })
+
+// const text = $(this).find('.input#form_email').val().trim();
 //     if (text === '') {
-//       $.flash("What's This Foolishness?! Please enter your email so we can send you your share link!");
+
+// $('.button.btn.btn-secondary.btn-lg').on('submit', function(e) {
+//   e.preventDefault();
+//   $.flash("What's This Foolishness?! Please enter your email so we can send you your share link!");
+// })
