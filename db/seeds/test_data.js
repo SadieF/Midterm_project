@@ -13,8 +13,8 @@ exports.seed = function(knex, Promise) {
   const createAdmin = deleteAllDataPrms
     .then(() => {
       return knex('admin').returning('*')
-        .insert({ email: 'john@john.john', firstname: 'John', lastname: 'Smith' },
-          {email: 'wendy@wendy.com', firstname: 'Wendy', lastname: 'Rules'});
+        .insert([{ email: 'john@john.john', firstname: 'John', lastname: 'Smith' },
+          {email: 'wendy@wendy.com', firstname: 'Wendy', lastname: 'Rules'}]);
     });
   const createPolls = createAdmin
     .then(([admin]) => {
@@ -26,7 +26,7 @@ exports.seed = function(knex, Promise) {
         ]);
     });
   const createOptions = createPolls
-    .then(([dinnerPoll, vacationPoll]) => {
+    .then(([dinnerPoll, vacationPoll, clothesPoll]) => {
       return knex('options').returning('*')
         .insert([
           { poll_id: dinnerPoll.id, option: 'Sushi', option_desc: 'Avocado rolls', order: 1 },
@@ -45,7 +45,7 @@ exports.seed = function(knex, Promise) {
         ]);
     });
   const createVotes = createOptions
-    .then(([dP1, dP2, dP3, dP4, dP5, vP1, vP2, vP3, vP4, vP5]) => {
+    .then(([dP1, dP2, dP3, dP4, dP5, vP1, vP2, vP3, vP4, vP5, cP1, cP2, cP3]) => {
       return knex('votes').returning('*')
         .insert([
           { option_id: dP1.id, score: 5 },
