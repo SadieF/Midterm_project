@@ -68,31 +68,31 @@ module.exports = (knex) => {
           return (knex('options')
             .insert([
               ({
-                polls_id: id,
+                poll_id: id,
                 option: templateVars.option_1,
                 option_desc: templateVars.option_1_desc,
                 "order": 1
               }),
               ({
-                polls_id: id,
+                poll_id: id,
                 option: templateVars.option_2,
                 option_desc: templateVars.option_2_desc,
                 "order": 2
               }),
               ({
-                polls_id: id,
+                poll_id: id,
                 option: templateVars.option_3,
                 option_desc: templateVars.option_3_desc,
                 "order": 3
               }),
               ({
-                polls_id: id,
+                poll_id: id,
                 option: templateVars.option_4,
                 option_desc: templateVars.option_4_desc,
                 "order": 4
               }),
               ({
-                polls_id: id,
+                poll_id: id,
                 option: templateVars.option_5,
                 option_desc: templateVars.option_5_desc,
                 "order": 5
@@ -113,10 +113,10 @@ module.exports = (knex) => {
         to: `${templateVars.email}`,
         subject: "Well That's Fabulous! Your poll has been created!",
         text: 'Testing some Mailgun awesomness!',
-        html: `<html><h1>${pollname}</h1><p>You've created a new poll!</p>
-          <p>To look at your poll and see how people are voting, <a href="${adminURL}" target="_blank">click here</a>.</p>
+        html: `<html><h1>You've created a new poll!</h1><h2>${pollname}</h2>
+          <p>To look at your poll and see how people are voting, <a href="http://127.0.0.1:8080/${adminURL}" target="_blank">click here</a>.</p>
           <p>To share your poll with friends, copy and paste this link to emails, social media, a billboard, etc.</p>
-          <p>Share link: <a href="${shareURL}" target="_blank">${shareURL}</a></p></html>`,
+          <p>Share link: <a href="http://127.0.0.1:8080/vote/${shareURL}" target="_blank">http://127.0.0.1:8080/vote/${shareURL}</a></p></html>`,
       };
 
       mailgun.messages().send(data, function (error, body) {
