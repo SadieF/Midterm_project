@@ -39,15 +39,13 @@ app.use(express.static("public"));
 
 // Mount all resource routes
 app.use("/poll", usersRoutes(knex));
-console.log('I GOT HERE -1');
 
 // Home page
 app.get("/", (req, res) => {
-  console.log('WE ARE IN HOME PAGE');
   res.render("index");
 });
 
-
+// shareable link
 app.get('/vote/:id', (req, res) => {
   const pollWithOptionsPromise = dataHelpers.getPollWithOptionsByShareUrl(req.params.id)
 
@@ -56,10 +54,49 @@ app.get('/vote/:id', (req, res) => {
       res.render("vote", { poll });
       console.log({ poll });
     });
+    console.log('REQ.PARAMS.ID:',req.params.id);
 });
 
+// POST: shareable link
+app.post('/vote/:id', (req, res) => {
+
+  function insertScoreIntoTable (formArr) {
+    let maxScore = 5
+    formArr.forEach(function (item) {
+        item.score = maxScore;
+        maxScore--;
+    })
+    return formArr;
+  }
+
+  function insertDataIntoVotesDatabase (formArr) {
+    return knex ('votes')
+        .insert([{
+            option_id: formArr[0].option_id,
+            score: formArr[0].score
+        },{
+            option_id: formArr[1].option_id,
+            score: formArr[1].score
+        },{
+            option_id: formArr[2].option_id,
+            score: formArr[2].score
+        },{
+            option_id: formArr[3].option_id,
+            score: formArr[3].score
+        },{
+            option_id: formArr[4].option_id,
+            score: formArr[4].score
+        }
+    ])
+    .catch((err) => {
+        console.log("err", err);
+    })
+  }
+
+})
 
 
+// For the admin
 app.get('/:id', (req, res) => {
   const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
   pollAndScoresPromise
