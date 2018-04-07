@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>WTF - Decision Maker</title>
-    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif"/>
 
-    <!-- Bootstrap meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>WTF - Decision Maker</title>
+  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+  <!-- Bootstrap meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <!-- Flash CSS -->
+  <link rel="stylesheet" href="../vendor/jquery.flash.css" type="text/css" />
+  <!-- External Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <!-- JS and JQuery -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <!-- Flash JS -->
+  <script type="text/javascript" src="../vendor/jquery.flash.js"></script>
+</head>
 
-    <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- CSS Stylesheets -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <!-- External Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-
-    <!-- JS and JQuery -->
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
-  </head>
-
-  <body>
-    <header>
+<body>
+  <header>
     <% include ./partials/header %>
-    </header>
+  </header>
+  <main class="container-fluid">
+    <section id="new-poll" class="container">
+      <form id="create-poll" method="POST" action="/poll">
+        <p class="h1">So, what do you want to know?</p>
+        <div class="form-group">
+          <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Name your poll here: When's The Fiesta? Watch This Film? What's The Favourite? ">
+        </div>
+        <p class="h2">Provide a few options here:</p>
+        <div class="form-group">
+          <input type="text" class="form-option form-control" name="option_1" placeholder="Option 1">
+          <input type="text" class="form-desc form-control" name="option_1_desc" placeholder="Description">
+        </div>
+        <br/>
+        <div class="form-group">
+          <input type="text" class="form-option form-control" name="option_2" placeholder="Option 2">
+          <input type="text" class="form-desc form-control" name="option_2_desc" placeholder="Description">
+        </div>
+        <br/>
+        <div class="form-group">
+          <input type="text" class="form-option form-control" name="option_3" placeholder="Option 3">
+          <input type="text" class="form-desc form-control" name="option_3_desc" placeholder="Description">
+        </div>
+        <br/>
+        <div class="form-group">
+          <input type="text" class="form-option form-control" name="option_4" placeholder="Option 4">
+          <input type="text" class="form-desc form-control" name="option_4_desc" placeholder="Description">
+        </div>
+        <br/>
+        <div class="form-group">
+          <input type="text" class="form-option form-control" name="option_5" placeholder="Option 5">
+          <input type="text" class="form-desc form-control" name="option_5_desc" placeholder="Description">
+        </div>
+        <br/>
+        <p class="h2">Tell us a bit about you:</p>
+        <div class="form-group">
+          <input type="text" id="firstname" name="firstname" class="form-name form-control" placeholder="First Name">
+        </div>
+        <div class="form-group">
+          <input type="text" id="lastname" name="lastname" class="form-name form-control" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+        <br/>
+        <div>
+          <button type="submit" class="btn btn-secondary btn-lg">Create Poll</button>
+        </div>
+      </form>
+    </section>
+    <div class="card">
+      <div class="card-body">
+        This is some text within a card body.
+      </div>
+    </div>
+  </main>
+</body>
 
-    <main class="container-fluid">
-      <section id="new-poll" class="container">
-          <form id="create-poll" method="POST" action="/poll">
-            <p class="h1">So, what do you want to know?</p>
-            <div class="form-group">
-              <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Name your poll here: When's The Fiesta? Watch This Film? What's The Favourite? ">
-            </div>
-            <p class="h2">Provide a few options here:</p>
-            <div class="form-group">
-              <input type="text" class="form-option form-control" name="option_1" placeholder="Option 1">
-              <input type="text" class="form-desc form-control" name="option_1_desc" placeholder="Description">
-            </div>
-            <br/>
-            <div class="form-group">
-              <input type="text" class="form-option form-control" name="option_2"placeholder="Option 2">
-              <input type="text" class="form-desc form-control" name="option_2_desc" placeholder="Description">
-            </div>
-            <br/>
-            <div class="form-group">
-              <input type="text" class="form-option form-control" name="option_3" placeholder="Option 3">
-              <input type="text" class="form-desc form-control" name="option_3_desc" placeholder="Description">
-            </div>
-            <br/>
-            <div class="form-group">
-              <input type="text" class="form-option form-control" name="option_4" placeholder="Option 4">
-              <input type="text" class="form-desc form-control" name="option_4_desc" placeholder="Description">
-            </div>
-            <br/>
-            <div class="form-group">
-              <input type="text" class="form-option form-control" name="option_5" placeholder="Option 5">
-              <input type="text" class="form-desc form-control" name="option_5_desc" placeholder="Description">
-            </div>
-            <br/>
-            <p class="h2">Tell us a bit about you:</p>
-             <div class="form-group">
-              <input type="text" id="firstname" name="firstname" class="form-name form-control" placeholder="First Name">
-            </div>
-            <div class="form-group">
-              <input type="text" id="lastname" name="lastname" class="form-name form-control" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" id="form_email" aria-describedby="emailHelp" placeholder="Enter email">
-            </div><br/>
-            <div>
-            <button type="submit" class="btn btn-secondary btn-lg">Create Poll</button>
-          </div>
-          </form>
-      </section>
-      <div class="card">
-  <div class="card-body">
-    This is some text within a card body.
-  </div>
-</div>
-    </main>
-  </body>
 </html>

@@ -39,7 +39,6 @@ module.exports = function(knex) {
       .join('votes', 'votes.option_id', 'options.id')
       .where({ 'polls.adminurl_random_key': adminUrl })
       .groupBy('options.id', 'options.poll_id', 'options.option', 'options.option_desc', 'options.order');
-    console.log('Query', query.toSQL());
     return query;
   }
 
