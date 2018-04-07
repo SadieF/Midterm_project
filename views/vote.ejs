@@ -31,8 +31,9 @@
     </header>
 
     <main class="container">
-      <form id="form-vote">
+      <form id="form-vote" method="POST" action="/vote">
         <h1 id="pollname"><%= poll.name %></h1>
+        <p id="voteintro">Drag and drop the options below to re-order according to your preference. Your favourite option should be on top, then your next favourite, and so on. Once you're happy with the order, click the <b>Vote Now!</b> button below to cast your vote.</p>
         <% poll.options.forEach(function(option) { %>
           <% if (option.option !== '') { %>
             <div class="card">
@@ -44,7 +45,7 @@
           <% }%>
         <% }) %>
         <div class="form-button">
-          <button type="submit" class="btn btn-secondary btn-lg">Vote Now!</button>
+          <button type="submit" id="votebutton" class="btn btn-secondary btn-lg">Vote Now!</button>
         </div>
       </form>
     </main>

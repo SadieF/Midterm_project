@@ -22,7 +22,7 @@ $(() => {
     const email = $('#create-poll').find('textarea').val().trim();
     if (email.length === 0) {
       e.preventDefault();
-      $.flash("What's This Foolishness?! Please enter your email so we can send you your share link!");
+      $.flash("<span style='font-weight:900;'>What's This Foolishness?!</span> <br/> You need a poll, we need your email.");
     }
   })
 

@@ -44,7 +44,7 @@
           .bottom()
           .animate({
             top: (($(window).height() - flash.height())) - 50 + 'px',
-            opacity: 0.8
+            opacity: 1
           });
 
         $(document).click(function() {

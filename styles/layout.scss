@@ -87,6 +87,7 @@ body {
 
   #email {
     width: 48%;
+    height: 38px;
     float: right;
     margin: 0em 0em 0em .125em;
   }
@@ -131,17 +132,24 @@ body {
     text-align: center;
   }
 
+  #voteintro {
+    font-weight: 200;
+    margin: 1em 0em 1em 10em;
+    width: 70%;
+    text-align: center;
+  }
+
   .option {
     color: $blue;
-    font-size: 1.25em;
+    font-size: 1.5em;
     font-weight: 900;
-    padding: 1em 2em 1em 1em;
+    padding: 0em 2em 0em 1em;
   }
 
   .option-desc {
     color: $grey;
-    font-weight: 400;
-    margin: 1em;
+    font-weight: 300;
+    margin-left: .5em;
   }
 
   .card {
@@ -152,14 +160,65 @@ body {
     cursor: pointer;
   }
 
+  #votebutton {
+    margin-right: 11em;
+  }
+
   .shoutout {
-    font: 400 100px/1.5 'Pacifico', Helvetica, sans-serif;
     color: $blue;
-    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+    font-size: 4em;
+    font-weight: 900;
     text-align: center;
   }
 
   .featureletter {
     color: $raspberry;
   }
+
+  .badge {
+    margin: 0em 2em 0em 0em;
+    font-size: 1em;
+    font-weight: 900;
+    border-radius: 5px;
+  }
+
+  .badge-pill {
+    padding: 14px;
+    float: right;
+  }
+
+  .badge-primary {
+    background-color: $raspberry;
+  }
+
+  #flash {
+  z-index: 5500;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: lighten($blue, 10%);
+  color: $white;
+  width: 60%;
+  padding: 25px 20px;
+  margin: 0;
+  font-size: 2em;
+  font-weight: 200;
+  text-align: center;
+  border: none;
+  filter: alpha(opacity=280);
+  opacity: 1;
+  border-radius: 30px 30px 0 0;
+}
+
+#flash div.flash_close {
+  top: -6px;
+  right: -6px;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background: url('/images/close.png') top left no-repeat;
+  cursor: pointer;
+  z-index: 181;
+}
+
 }
