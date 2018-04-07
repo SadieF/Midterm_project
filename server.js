@@ -48,58 +48,56 @@ app.get("/", (req, res) => {
 // shareable link
 app.get('/vote/:id', (req, res) => {
   const pollWithOptionsPromise = dataHelpers.getPollWithOptionsByShareUrl(req.params.id)
-
   pollWithOptionsPromise
     .then(poll => {
-      res.render("vote", { poll });
-      console.log({ poll });
+      if (req.params.id != poll.shareurl_random_key) {
+        res.render("404");
+      } else {
+        res.render("vote", { poll });
+      }
     });
-    console.log('REQ.PARAMS.ID:',req.params.id);
+  console.log('REQ.PARAMS.ID:', req.params.id);
 });
 
-<<<<<<< HEAD
 // POST: shareable link
 app.post('/vote/:id', (req, res) => {
 
-  function insertScoreIntoTable (formArr) {
+  function insertScoreIntoTable(formArr) {
     let maxScore = 5
-    formArr.forEach(function (item) {
-        item.score = maxScore;
-        maxScore--;
+    formArr.forEach(function(item) {
+      item.score = maxScore;
+      maxScore--;
     })
     return formArr;
   }
 
-  function insertDataIntoVotesDatabase (formArr) {
-    return knex ('votes')
-        .insert([{
-            option_id: formArr[0].option_id,
-            score: formArr[0].score
-        },{
-            option_id: formArr[1].option_id,
-            score: formArr[1].score
-        },{
-            option_id: formArr[2].option_id,
-            score: formArr[2].score
-        },{
-            option_id: formArr[3].option_id,
-            score: formArr[3].score
-        },{
-            option_id: formArr[4].option_id,
-            score: formArr[4].score
-        }
-    ])
-    .catch((err) => {
+  function insertDataIntoVotesDatabase(formArr) {
+    return knex('votes')
+      .insert([{
+        option_id: formArr[0].option_id,
+        score: formArr[0].score
+      }, {
+        option_id: formArr[1].option_id,
+        score: formArr[1].score
+      }, {
+        option_id: formArr[2].option_id,
+        score: formArr[2].score
+      }, {
+        option_id: formArr[3].option_id,
+        score: formArr[3].score
+      }, {
+        option_id: formArr[4].option_id,
+        score: formArr[4].score
+      }])
+      .catch((err) => {
         console.log("err", err);
-    })
+      })
   }
 
 })
 
 
 // For the admin
-=======
->>>>>>> 60e0d9902f517035fad7fb4529f25c092a1b4d07
 app.get('/:id', (req, res) => {
   const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
   pollAndScoresPromise
