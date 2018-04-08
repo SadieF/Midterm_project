@@ -41,5 +41,8 @@ $(() => {
     }
   })
 
+  $('#splashbutton').on('click', (e) => {
+    window.location.replace("/");
+  })
 
 })
