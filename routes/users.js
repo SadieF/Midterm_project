@@ -105,19 +105,22 @@ module.exports = (knex) => {
           console.log("err", err);
         })
 
-      // Mailbox data
+      // Mailgun email for new poll creation
       var pollname = templateVars.title;
       var adminURL = adminRandomKey;
       var shareURL = shareRandomKey;
       var data = {
-        from: "WTF? <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
+        from: "WTF Decision Maker <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
         to: `${templateVars.email}`,
         subject: "Well That's Fabulous! Your poll has been created!",
-        text: 'Testing some Mailgun awesomness!',
+        text: 'Your poll has been created!',
         html: `<html><h1>You've created a new poll!</h1><h2>${pollname}</h2>
-          <p>To look at your poll and see how people are voting, <a href="http://127.0.0.1:8080/${adminURL}" target="_blank">click here</a>.</p>
-          <p>To share your poll with friends, copy and paste this link to emails, social media, a billboard, etc.</p>
-          <p>Share link: <a href="http://127.0.0.1:8080/vote/${shareURL}" target="_blank">http://127.0.0.1:8080/vote/${shareURL}</a></p></html>`,
+          <p>Congratulations ${req.body.firstname}! Your new poll has been created and is ready for voting!</p>
+          <p>To view your poll, <a href="http://127.0.0.1:8080/${adminURL}" target="_blank">click here</a>.</p>
+          <p>To share your poll with friends, copy and paste the Share Link below to emails, social media, a billboard, etc.</p>
+          <p><b>Share Link: <a href="http://127.0.0.1:8080/vote/${shareURL}" target="_blank">http://127.0.0.1:8080/vote/${shareURL}</a></b></p>
+          <p>Thanks for using the Where's The Fun? Decision Maker!</p>
+          <p>Sincerely,<br/>Your friends at Party Parrot</p></html>`,
       };
 
       mailgun.messages().send(data, function(error, body) {

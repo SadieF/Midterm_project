@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>WTF -
-    <%= poll.name %>
-  </title>
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
-  <!-- Bootstrap meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <!-- External Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-  <!-- JS and JQuery -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-</head>
+  <head>
+    <title>WTF -
+      <%= poll.name %>
+    </title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+    <!-- Bootstrap meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+
+    <!-- JS and JQuery -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    </head>
   <body>
     <header>
       <% include ./partials/headerbutton %>
@@ -32,7 +32,10 @@
     <main class="container">
       <form id="form-vote" method="POST" action="/vote">
         <h1 id="pollname"><%= poll.name %></h1>
-        <p id="voteintro">Drag and drop the options below to re-order according to your preference. <br/>Your favourite option should be on top, then your next favourite, and so on.<br/>Once you're happy with the order, click the <b>Vote Now!</b> button below to cast your vote.</p>
+        <p id="voteintro">Drag and drop the options below to re-order according to your preference.
+          <br/>Your favourite option should be on top, then your next favourite, and so on.
+          <br/>Once you're happy with the order, click the <b>Vote Now!</b> button below to cast your vote.
+        </p>
         <% poll.options.forEach(function(option) { %>
           <% if (option.option !== '') { %>
             <div class="card">
@@ -41,7 +44,6 @@
                 <input type='hidden' name='option' value='<%= option.id %>'/>
               </div>
             </div>
-          </div>
           <% }%>
         <% }) %>
         <div class="form-button">

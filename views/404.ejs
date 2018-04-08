@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>WTF - Uh oh</title>
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
-  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
-  <!-- Bootstrap meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <!-- External Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-  <!-- JS and JQuery -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-</head>
+  <head>
+    <title>WTF - Uh oh</title>
 
-<body>
-  <header>
-    <% include ./partials/headerbutton %>
-  </header>
-  <main id="404" class="container">
-    <div class="card-body">
-      <p class="shoutout"><span class="featureletter">W</span><span>ell </span><span class="featureletter">T</span><span>hat's </span><span class="featureletter">F</span><span>unny...</span></p>
-      <p class="card-text">The page you're looking for doesn't want to be found. Either it moved, ran away, or didn't pay it's rent and got evicted.
-        <br> We're sorry. Please check the link and try again, or click the button up top to start making your own poll – perhaps you can ask, "Where did this poll go?"</p>
-      <p class="card-text"><small class="text-muted">If you believe you received this page in error, email WTF@partyparrot.com.</small></p>
-    </div>
-  </main>
-</body>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+
+    <!-- Bootstrap meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+
+    <!-- JS and JQuery -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <% include ./partials/headerbutton %>
+    </header>
+    <main id="404" class="container">
+      <div>
+        <p class="shoutout"><span class="featureletter">W</span><span>ell </span><span class="featureletter">T</span><span>hat's </span><span class="featureletter">F</span><span>unny...</span></p>
+        <p class="uhoh"><b>Uh oh, the page you're looking for either isn't here or doesn't want to be found.</b></p>
+        <p class="uhoh">Please check the link and try again, or click the <b>Create Poll</b> button to create your own poll.<br/>Perhaps you can ask, "Where did this poll go?"</p>
+      </div>
+    </main>
+  </body>
 
 </html>
