@@ -61,7 +61,12 @@ app.get('/:id', (req, res) => {
   const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
   pollAndScoresPromise
     .then(poll => {
-      res.render("admin", { poll });
+      if (req.params.id != poll.adminurl_random_key) {
+        res.render("404");
+      } else {
+        res.render("admin", { poll });
+      }
+
     });
 });
 
@@ -77,7 +82,6 @@ app.get('/vote/:id', (req, res) => {
         res.render("vote", { poll });
       }
     });
-  //console.log('REQ.PARAMS.ID:', req.params.id);
 });
 
 // POST: shareable link
@@ -143,8 +147,6 @@ app.post('/vote/:id', (req, res) => {
       });
   }
   insertDataIntoVotesDatabase(req.body.data);
-  // res.redirect('/thanks')
-
 })
 
 app.listen(PORT, () => {
