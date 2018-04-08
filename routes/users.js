@@ -61,6 +61,7 @@ module.exports = (knex) => {
               name: req.body.title
             })
             .returning('id')
+          return id;
         })
         .then((id) => Number(id[0]))
         .then((id) => {
@@ -119,20 +120,23 @@ module.exports = (knex) => {
           <p>Share link: <a href="http://127.0.0.1:8080/vote/${shareURL}" target="_blank">http://127.0.0.1:8080/vote/${shareURL}</a></p></html>`,
       };
 
-      mailgun.messages().send(data, function (error, body) {
+      mailgun.messages().send(data, function(error, body) {
         console.log(body);
       });
 
     }
 
     insertData(templateVars);
-    res.redirect('/poll/thanks')
+    res.redirect('/thanks')
+
+    //Need to fix this route
   })
 
   router.get('/thanks', (req, res) => {
     console.log('I GOT INTO THANKS');
     res.render('thanks');
   })
+
 
   return router;
 }

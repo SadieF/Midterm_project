@@ -45,7 +45,21 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-// shareable link
+//Thanks page
+app.get('/thanks', (req, res) => {
+  res.render("thanks");
+})
+
+// For the admin
+app.get('/:id', (req, res) => {
+  const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
+  pollAndScoresPromise
+    .then(poll => {
+      res.render("admin", { poll });
+    });
+});
+
+// Shared Voting Page
 app.get('/vote/:id', (req, res) => {
   const pollWithOptionsPromise = dataHelpers.getPollWithOptionsByShareUrl(req.params.id)
   pollWithOptionsPromise
@@ -96,21 +110,8 @@ app.post('/vote/:id', (req, res) => {
       })
   }
   insertDataIntoVotesDatabase(addedScore);
-
-
-  // |||||||| This redirect is not working ||||||||||
-  res.redirect('/poll/thanks');
+  res.redirect('/thanks')
 })
-
-// For the admin
-app.get('/:id', (req, res) => {
-  const pollAndScoresPromise = dataHelpers.getPollWithOptionsAndScoresByAdminURL(req.params.id)
-  pollAndScoresPromise
-    .then(poll => {
-      res.render("admin", { poll });
-    });
-});
-
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
