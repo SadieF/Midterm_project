@@ -61,8 +61,6 @@ app.get('/vote/:id', (req, res) => {
 
 // POST: shareable link
 app.post('/vote/:id', (req, res) => {
-  //console.log('ANHAD');
-  console.log('REQ.BODY: ', req.body);
 
   function addScore(formArr) {
     let maxScore = 5
@@ -98,10 +96,10 @@ app.post('/vote/:id', (req, res) => {
       })
   }
   insertDataIntoVotesDatabase(addedScore);
-  console.log(insertDataIntoVotesDatabase(addedScore));
 
-  res.redirect('/vote/:id');
 
+  // |||||||| This redirect is not working ||||||||||
+  res.redirect('/poll/thanks');
 })
 
 // For the admin
