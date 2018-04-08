@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <title>WTF - Decision Maker</title>
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- CSS Stylesheets -->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <!-- External Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+  <head>
+    <title>WTF - Decision Maker</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- JS and JQuery -->
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
-  <!-- Flash JS and CSS -->
-  <script type="text/javascript" src="../vendor/jquery.flash.js"></script>
-  <link rel="stylesheet" href="../vendor/jquery.flash.css" type="text/css" />
-</head>
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-<body>
-  <header>
+    <!-- External Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Heebo:300,400,500,700,900" rel="stylesheet">
+
+    <!-- JS and JQuery -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <!-- Flash JS and CSS -->
+    <script type="text/javascript" src="../vendor/jquery.flash.js"></script>
+    <link rel="stylesheet" href="../vendor/jquery.flash.css" type="text/css" />
+  </head>
+
 
     <body>
       <header>
@@ -37,7 +37,9 @@
             <div class="form-group">
               <input type="text" id="form_pollname" name="title" class="form-control" placeholder="Give your poll a name... may we suggest: When's The Fiesta? What's The Favourite? ">
             </div>
-            <h2>Provide a few options here:</h2>
+            <div>
+            <h2 id="optioninfo">Provide a few options here:</h2>
+            </div>
             <div class="form-group">
               <input type="text" class="form-option form-control" name="option_1" placeholder="Option 1">
               <input type="text" class="form-desc form-control" name="option_1_desc" placeholder="Description">
@@ -63,7 +65,9 @@
               <input type="text" class="form-desc form-control" name="option_5_desc" placeholder="Description">
             </div>
             <br/>
-            <h2>Tell us a bit about yourself:</h2>
+            <div>
+            <h2 id="personalinfo">Tell us a bit about yourself:</h2>
+            </div>
             <div class="form-group">
               <input type="text" id="firstname" name="firstname" class="form-name form-control" placeholder="First Name">
             </div>

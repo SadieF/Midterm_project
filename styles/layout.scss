@@ -69,8 +69,6 @@ body {
     color: $blue;
     font-weight: 800;
     font-size: 1.25em;
-    display: inline-block;
-    padding-top: 1em;
   }
 
   .container-fluid {
@@ -94,6 +92,14 @@ body {
 
   .form-control {
     margin-top: .25em;
+  }
+
+  #personalinfo {
+    padding-top: 4em;
+  }
+
+  #optioninfo {
+    padding-top: .5em;
   }
 
   #firstname {
@@ -132,7 +138,7 @@ body {
     text-align: center;
   }
 
-  #voteintro {
+  .intro {
     font-weight: 200;
     margin: 1em 0em 1em 10em;
     width: 70%;
@@ -143,13 +149,12 @@ body {
     color: $blue;
     font-size: 1.5em;
     font-weight: 900;
-    padding: 0em 2em 0em 1em;
+    padding: 0em 1em 0em .5em;
   }
 
   .option-desc {
     color: $grey;
     font-weight: 300;
-    margin-left: .5em;
   }
 
   .card {
