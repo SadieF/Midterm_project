@@ -56,13 +56,14 @@ app.get('/vote/:id', (req, res) => {
         res.render("vote", { poll });
       }
     });
-  console.log('REQ.PARAMS.ID:', req.params.id);
+  //console.log('REQ.PARAMS.ID:', req.params.id);
 });
 
 // POST: shareable link
 app.post('/vote/:id', (req, res) => {
-
-  function insertScoreIntoTable(formArr) {
+  //console.log('ANHAD');
+  console.log('REQ.BODY: ', req.body);
+  function addScore (formArr) {
     let maxScore = 5
     formArr.forEach(function(item) {
       item.score = maxScore;
@@ -70,6 +71,8 @@ app.post('/vote/:id', (req, res) => {
     })
     return formArr;
   }
+
+  const addedScore = addScore(req.body.data)
 
   function insertDataIntoVotesDatabase(formArr) {
     return knex('votes')
@@ -93,9 +96,12 @@ app.post('/vote/:id', (req, res) => {
         console.log("err", err);
       })
   }
+  insertDataIntoVotesDatabase(addedScore);
+  console.log(insertDataIntoVotesDatabase(addedScore));
+
+ res.redirect('/poll/thanks');
 
 })
-
 
 // For the admin
 app.get('/:id', (req, res) => {

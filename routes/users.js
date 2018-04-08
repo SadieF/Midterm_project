@@ -130,7 +130,8 @@ module.exports = (knex) => {
   })
 
   router.get('/thanks', (req, res) => {
-    res.render('thanks')
+    console.log('I GOT INTO THANKS');
+    res.render('thanks');
   })
 
   return router;
