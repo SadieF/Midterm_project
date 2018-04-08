@@ -13,6 +13,12 @@ const knexConfig = require("./knexfile");
 const knex = require("knex")(knexConfig[ENV]);
 const morgan = require('morgan');
 const knexLogger = require('knex-logger');
+var api_key = 'key-53af461a44e0d2292e1def1205f95c8a';
+var DOMAIN = 'sandbox776e0d067094447ca8a251aff144199a.mailgun.org';
+var mailgun = require('mailgun-js')({
+  apiKey: api_key,
+  domain: DOMAIN
+});
 
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
@@ -76,6 +82,41 @@ app.get('/vote/:id', (req, res) => {
 
 // POST: shareable link
 app.post('/vote/:id', (req, res) => {
+  console.log('REQ PARAMS', req.params);
+  console.log('REQ BODY', req.body);
+  console.log('REQ HEADER', req.header);
+  console.log('REQ Option data', req.body.data[0].option_id)
+
+  const adminInfoPromise = dataHelpers.getEmailByShareUrl(req.body.data[0].option_id);
+  adminInfoPromise
+    .then(adminInfo => {
+      var adminemail = (adminInfo['0'].email);
+      var pollname = (adminInfo['0'].name)
+      var adminURL = (adminInfo['0'].adminurl_random_key)
+      var shareURL = (adminInfo['0'].shareurl_random_key)
+      console.log(adminemail, pollname, adminURL, shareURL);
+      var data = {
+        from: "WTF Decision Maker <wtf@sandbox776e0d067094447ca8a251aff144199a.mailgun.org>",
+        to: `${adminemail}`,
+        subject: "Way Too Fun! A new vote!",
+        text: 'Your poll has a new vote!',
+        html: `<html><h1>Your poll has a new vote!</h1><h2>${pollname}</h2>
+      <p>What's That Feeling? It's a new vote!</p>
+      <p>To view your poll and see how people are voting, <a href="http://127.0.0.1:8080/${adminURL}" target="_blank">click here</a>.</p>
+      <p>To share your poll with friends, copy and paste the Share Link below.</p>
+      <p><b>Share Link: <a href="http://127.0.0.1:8080/vote/${shareURL}" target="_blank">http://127.0.0.1:8080/vote/${shareURL}</a></b></p>
+      <p>Thanks for using the Where's The Fun? Decision Maker!</p>
+      <p>Sincerely,<br/>Your friends at Party Parrot</p></html>`,
+      };
+
+      mailgun.messages().send(data, function(error, body) {
+        res.redirect('/thanks')
+      });
+
+    })
+
+
+
 
   function addScore(formArr) {
     let maxScore = formArr.length;
@@ -101,9 +142,9 @@ app.post('/vote/:id', (req, res) => {
         console.log("THERE IS AN ERROR", err);
       });
   }
-  console.log(JSON.stringify(req.body.data));
   insertDataIntoVotesDatabase(req.body.data);
-  res.redirect('/thanks')
+  // res.redirect('/thanks')
+
 })
 
 app.listen(PORT, () => {

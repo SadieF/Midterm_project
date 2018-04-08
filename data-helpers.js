@@ -1,5 +1,22 @@
 module.exports = function(knex) {
 
+  function getAdminInfoByShareUrl(optionId) {
+    return knex('admin')
+      .select('admin.*', 'polls.*')
+      .join('polls', 'admin.id', 'polls.admin_id')
+      .join('options', 'options.poll_id', 'polls.id')
+      .where({ 'options.id': optionId })
+  }
+
+  function getEmailByShareUrl(shareUrl) {
+    const getAdminPromise = getAdminInfoByShareUrl(shareUrl);
+    return Promise.all([getAdminPromise])
+      .then(([adminInfo]) => ({ ...adminInfo }))
+      .catch((err) => {
+        console.log('Err', err);
+      })
+  }
+
   function getPollByShareUrl(shareUrl) {
     return knex('polls')
       .first('*')
@@ -55,12 +72,15 @@ module.exports = function(knex) {
       })
   }
 
+
   return {
     getPollByShareUrl,
     getOptionsByShareUrl,
     getPollWithOptionsByShareUrl,
     getPollByAdminUrl,
     getScoresByAdminUrl,
-    getPollWithOptionsAndScoresByAdminURL
+    getPollWithOptionsAndScoresByAdminURL,
+    getAdminInfoByShareUrl,
+    getEmailByShareUrl
   };
 }
