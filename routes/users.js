@@ -121,20 +121,13 @@ module.exports = (knex) => {
       };
 
       mailgun.messages().send(data, function(error, body) {
+        res.redirect('/' + adminURL)
         console.log(body);
       });
 
     }
-
     insertData(templateVars);
-    res.redirect('/thanks')
 
-    //Need to fix this route
-  })
-
-  router.get('/thanks', (req, res) => {
-    console.log('I GOT INTO THANKS');
-    res.render('thanks');
   })
 
 
