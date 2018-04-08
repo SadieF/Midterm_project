@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
 
 // Home page
 app.get('/wtf', (req, res) => {
-  res.render("wtf");
+  res.render("welcome");
 })
 
 //Thanks page
@@ -129,11 +129,7 @@ app.post('/vote/:id', (req, res) => {
 
 
   function addScore(formArr) {
-<<<<<<< HEAD
     let maxScore = formArr.length;
-=======
-    let maxScore = formArr.length
->>>>>>> feature/routes
     formArr.forEach(function(item) {
       item.score = maxScore;
       maxScore--;
