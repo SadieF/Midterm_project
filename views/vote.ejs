@@ -37,7 +37,8 @@
           <br/>Once you're happy with the order, click the <b>Vote Now!</b> button below to cast your vote.
         </p>
         <% poll.options.forEach(function(option) { %>
-          <% if (option.option !== '') { %>
+        <% if (option.option !== '') { %>
+
             <div class="card">
               <div class="card-body">
                 <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span>
