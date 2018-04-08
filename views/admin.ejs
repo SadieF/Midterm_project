@@ -2,8 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>WTF -
-    <%= poll.name %>
+  <title>WTF - <%= poll.name %>
   </title>
   <!-- Favicon -->
   <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
@@ -30,19 +29,18 @@
   </header>
   <main class="container">
     <section id="polladmin">
-      <h1 id="pollname"><%= poll.name %></h1>
-      <p class="intro">Below are the options you created and the scores so far.
-        <br/>As votes come in, the options will re-arrange to show the top choices first.
-        <br/>Use the Share URL below to keep those votes coming in!
-      </p>
-      <h2 align="center">Share URL: http://127.0.0.1:8080/<%= poll.shareurl_random_key %></h2>
-      <% poll.adminScores.forEach(function(option) { %>
-        <% if (option.option !== '') { %>
-          <div class="card">
-            <div class="card-body">
-              <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span><span align="right" class="badge badge-primary badge-pill"><%= option.score %></span>
+       <h1 id="pollname"><%= poll.name %></h1>
+       <p class="intro">Below are the options you created and the scores so far, the higher the score, the more people liked that option! As votes come in, the scores will climb and the options will re-arrange to show the top choices first.
+          <br/>Use the Share URL below to keep those votes coming in!
+        </p>
+        <h2 align="center">Share URL: http://127.0.0.1:8080/<%= poll.shareurl_random_key %></h2>
+        <% poll.adminScores.forEach(function(option) { %>
+          <% if (option.option !== '') { %>
+            <div class="card">
+              <div class="card-body">
+                <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span><span align="right" class="badge badge-primary badge-pill"><%= option.score %></span>
+              </div>
             </div>
-          </div>
           <% }%>
             <% }) %>
     </section>
