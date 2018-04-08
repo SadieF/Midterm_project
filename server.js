@@ -40,10 +40,15 @@ app.use(express.static("public"));
 // Mount all resource routes
 app.use("/poll", usersRoutes(knex));
 
-// Home page
+// Create a poll page
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+// Home page
+app.get('/wtf', (req, res) => {
+  res.render("wtf");
+})
 
 //Thanks page
 app.get('/thanks', (req, res) => {
@@ -57,6 +62,7 @@ app.get('/:id', (req, res) => {
     .then(poll => {
       res.render("admin", { poll });
     });
+
 });
 
 // Shared Voting Page
@@ -77,7 +83,7 @@ app.get('/vote/:id', (req, res) => {
 app.post('/vote/:id', (req, res) => {
 
   function addScore(formArr) {
-    let maxScore = 5
+    let maxScore = formArr.length
     formArr.forEach(function(item) {
       item.score = maxScore;
       maxScore--;
