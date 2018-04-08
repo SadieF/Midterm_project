@@ -77,9 +77,8 @@ body {
 
   #new-poll {
     background-color: $white;
-    /*border: 0.1em solid $grey;*/
     border-radius: 1em;
-    padding: 25px 25px 100px 25px;
+    padding: 0px 25px 100px 25px;
     margin-top: 120px;
   }
 
@@ -240,4 +239,29 @@ body {
   .uhoh {
     text-align: center;
   }
+
+  body#splash {
+    background-color: $blue;
+  }
+
+  #bigname {
+    color: $raspberry;
+    font-weight: 900;
+    font-size: 6em;
+    margin: auto;
+  }
+
+  #bigtag {
+    color: $white;
+    font-weight: 200;
+    font-size: 2em;
+    margin: auto;
+  }
+
+  #splashbutton {
+    background-color: $white;
+    color: $raspberry;
+  }
 }
+
+
