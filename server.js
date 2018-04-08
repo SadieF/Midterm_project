@@ -63,7 +63,8 @@ app.get('/vote/:id', (req, res) => {
 app.post('/vote/:id', (req, res) => {
   //console.log('ANHAD');
   console.log('REQ.BODY: ', req.body);
-  function addScore (formArr) {
+
+  function addScore(formArr) {
     let maxScore = 5
     formArr.forEach(function(item) {
       item.score = maxScore;
@@ -99,7 +100,7 @@ app.post('/vote/:id', (req, res) => {
   insertDataIntoVotesDatabase(addedScore);
   console.log(insertDataIntoVotesDatabase(addedScore));
 
- res.redirect('/poll/thanks');
+  res.redirect('/vote/:id');
 
 })
 
