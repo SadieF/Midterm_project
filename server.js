@@ -101,7 +101,7 @@ app.post('/vote/:id', (req, res) => {
         console.log("THERE IS AN ERROR", err);
       });
   }
-
+  console.log(JSON.stringify(req.body.data));
   insertDataIntoVotesDatabase(req.body.data);
   res.redirect('/thanks')
 })
