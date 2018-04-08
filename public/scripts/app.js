@@ -4,6 +4,7 @@ $(() => {
     e.preventDefault();
 
 
+
     var returnData = $form.serializeArray().map((item, index) =>
       ({ rank: index, option_id: item.value }));
 
