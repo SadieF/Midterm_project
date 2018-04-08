@@ -35,6 +35,7 @@ module.exports = function(knex) {
     const query = knex('options')
       .select('options.*')
       .sum('votes.score as score')
+      .count('votes.score as count')
       .join('polls', 'polls.id', 'options.poll_id')
       .join('votes', 'votes.option_id', 'options.id')
       .where({ 'polls.adminurl_random_key': adminUrl })

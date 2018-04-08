@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 
 module.exports = (knex) => {
-    router.post('/', (req, res) => {
-        res.redirect('/thankyou')
-      })
+  router.post('/', (req, res) => {
+    res.redirect('/thankyou')
+  })
 }

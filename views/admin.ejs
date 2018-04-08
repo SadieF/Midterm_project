@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>WTF - <%= poll.name %></title>
-
+  <title>WTF -
+    <%= poll.name %>
+  </title>
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif"/>
+  <link rel="shortcut icon" type="image/png" style="height:16px; width:16px;" href="http://cultofthepartyparrot.com/parrots/parrot.gif" />
   <!-- Bootstrap meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,22 +27,21 @@
 
 <body>
   <header>
-      <% include ./partials/headerbutton %>
+    <% include ./partials/headerbutton %>
   </header>
-
   <main class="container">
     <section id="polladmin">
-       <h1 id="pollname"><%= poll.name %></h1>
-        <!-- <h4>Based on <%= poll.count %></h4> -->
-        <% poll.adminScores.forEach(function(option) { %>
-          <% if (option.option !== '') { %>
-            <div class="card">
-              <div class="card-body">
-                <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span><span align="right" class="badge badge-primary badge-pill"><!-- <% const percent = (option.score/option.length * 100) %> --><%= option.score %></span>
-              </div>
+      <h1 id="pollname"><%= poll.name %></h1>
+      <!-- <h4>Based on <%= poll.count %></h4> -->
+      <% poll.adminScores.forEach(function(option) { %>
+        <% if (option.option !== '') { %>
+          <div class="card">
+            <div class="card-body">
+              <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span><span align="right" class="badge badge-primary badge-pill"><!-- <% const percent = (option.score/option.length * 100) %> --><%= option.score %></span>
             </div>
+          </div>
           <% }%>
-        <% }) %>
+            <% }) %>
     </section>
   </main>
 </body>
