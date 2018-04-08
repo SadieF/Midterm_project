@@ -88,28 +88,21 @@ app.post('/vote/:id', (req, res) => {
   const addedScore = addScore(req.body.data)
 
   function insertDataIntoVotesDatabase(formArr) {
-    return knex('votes')
-      .insert([{
-        option_id: formArr[0].option_id,
-        score: formArr[0].score
-      }, {
-        option_id: formArr[1].option_id,
-        score: formArr[1].score
-      }, {
-        option_id: formArr[2].option_id,
-        score: formArr[2].score
-      }, {
-        option_id: formArr[3].option_id,
-        score: formArr[3].score
-      }, {
-        option_id: formArr[4].option_id,
-        score: formArr[4].score
-      }])
-      .catch((err) => {
-        console.log("err", err);
-      })
+    knex('votes')
+    .insert(formArr.map(formArr =>({
+        option_id: formArr.option_id,
+        score: formArr.score
+      }))
+    )
+    .then((votes) => {
+      console.log('Here are my votes:', votes);
+    })
+    .catch((err) => {
+      console.log("THERE IS AN ERROR", err);
+    });
   }
-  insertDataIntoVotesDatabase(addedScore);
+
+  insertDataIntoVotesDatabase(req.body.data);
   res.redirect('/thanks')
 })
 
