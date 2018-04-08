@@ -67,6 +67,7 @@ module.exports = (knex) => {
         .then((id) => {
           console.log('Here are my poll_id:', id);
           return (knex('options')
+            .returning('*')
             .insert([
               ({
                 poll_id: id,
@@ -100,6 +101,16 @@ module.exports = (knex) => {
               })
             ])
           )
+        })
+        .then((options) => {
+          const votesToCreate = options.map((option) => {
+            return {
+              option_id: option.id,
+              score:0
+            }
+          });
+          return knex('votes')
+            .insert(votesToCreate)
         })
         .catch((err) => {
           console.log("err", err);
