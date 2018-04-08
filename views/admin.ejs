@@ -31,13 +31,13 @@
   </header>
   <main class="container">
     <section id="polladmin">
-      <h1 id="pollname"><%= poll.name %></h1>
-      <!-- <h4>Based on <%= poll.count %></h4> -->
-      <% poll.adminScores.forEach(function(option) { %>
-        <% if (option.option !== '') { %>
-          <div class="card">
-            <div class="card-body">
-              <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span><span align="right" class="badge badge-primary badge-pill"><!-- <% const percent = (option.score/option.length * 100) %> --><%= option.score %></span>
+       <h1 id="pollname"><%= poll.name %></h1>
+        <% poll.adminScores.forEach(function(option) { %>
+          <% if (option.option !== '') { %>
+            <div class="card">
+              <div class="card-body">
+                <span class="option"><%= option.option %></span> <span class="option-desc"><%= option.option_desc%></span><span align="right" class="badge badge-primary badge-pill"><%= option.score %></span>
+              </div>
             </div>
           </div>
           <% }%>
