@@ -78,7 +78,7 @@ app.get('/vote/:id', (req, res) => {
 app.post('/vote/:id', (req, res) => {
 
   function addScore(formArr) {
-    let maxScore = 5
+    let maxScore = formArr.length;
     formArr.forEach(function(item) {
       item.score = maxScore;
       maxScore--;
@@ -90,17 +90,16 @@ app.post('/vote/:id', (req, res) => {
 
   function insertDataIntoVotesDatabase(formArr) {
     knex('votes')
-    .insert(formArr.map(formArr =>({
+      .insert(formArr.map(formArr => ({
         option_id: formArr.option_id,
         score: formArr.score
-      }))
-    )
-    .then((votes) => {
-      console.log('Here are my votes:', votes);
-    })
-    .catch((err) => {
-      console.log("THERE IS AN ERROR", err);
-    });
+      })))
+      .then((votes) => {
+        console.log('Here are my votes:', votes);
+      })
+      .catch((err) => {
+        console.log("THERE IS AN ERROR", err);
+      });
   }
 
   insertDataIntoVotesDatabase(req.body.data);
