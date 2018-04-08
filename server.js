@@ -59,6 +59,7 @@ app.get('/:id', (req, res) => {
     });
 });
 
+
 // Shared Voting Page
 app.get('/vote/:id', (req, res) => {
   const pollWithOptionsPromise = dataHelpers.getPollWithOptionsByShareUrl(req.params.id)
