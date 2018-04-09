@@ -32,7 +32,7 @@
        <h1 id="pollname"><%= poll.name %></h1>
        <p class="intro">Below are the options you created and the scores so far, the higher the score, the more people liked that option! As votes come in, the scores will climb and the options will re-arrange to show the top choices first. Use the Share URL below to keep those votes coming in!
         </p>
-        <h2 align="center">Share URL: http://127.0.0.1:8080/<%= poll.shareurl_random_key %></h2>
+        <h2 align="center">Share URL: http://127.0.0.1:8080/vote/<%= poll.shareurl_random_key %></h2>
         <% poll.adminScores.forEach(function(option) { %>
           <% if (option.option !== '') { %>
             <div class="card">
