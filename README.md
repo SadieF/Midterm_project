@@ -1,5 +1,5 @@
 # Midterm Project
-##Where's The Fun? Decision Maker
+## Where's The Fun? Decision Maker
 
 The WTF Decision Maker is a web app that uses ranked voting to help groups of friends make decisions like, "When's The Fiesta?" or "Where's The Fun?" 
 
@@ -9,15 +9,15 @@ Combining user-focused, front-end development with back-end application, server,
 
 ## Final Product
 
-!["Welcome Screen"](https://github.com/djwendo/tweeter/blob/master/docs/tweeter-landing-page.png?raw=true)
-!["Create a Poll"](https://github.com/djwendo/tweeter/blob/master/docs/toggle-compose.png?raw=true)
-!["Email Error Flash Message"](https://github.com/djwendo/tweeter/blob/master/docs/flash-message-long-tweet.png?raw=true)
-!["Poll Admin Page"](https://github.com/djwendo/tweeter/blob/master/docs/tweet-hover.png?raw=true)
-!["Drag and Drop Voting"](https://github.com/djwendo/tweeter/blob/master/docs/flash-message-empty-tweet.png?raw=true)
-!["Thank You"](https://github.com/djwendo/tweeter/blob/master/docs/flash-message-long-tweet.png?raw=true)
-!["404 - Error Message"](https://github.com/djwendo/tweeter/blob/master/docs/flash-message-long-tweet.png?raw=true)
-!["New Poll Creation Email"](https://github.com/djwendo/tweeter/blob/master/docs/flash-message-long-tweet.png?raw=true)
-!["New Vote Received Email"](https://github.com/djwendo/tweeter/blob/master/docs/flash-message-long-tweet.png?raw=true)
+!["Welcome Screen"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/splash_page.png?raw=true)
+!["Create a Poll"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/create_poll.png?raw=true)
+!["Email Error Flash Message"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/email_error.png?raw=true)
+!["Poll Admin Page"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/admin_page.png?raw=true)
+!["Drag and Drop Voting"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/vote_page.png?raw=true)
+!["Thank You"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/thank_you.png?raw=true)
+!["404 - Error Message"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/error_404.png?raw=true)
+!["New Poll Creation Email"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/newpoll_email.png?raw=true)
+!["New Vote Received Email"](https://github.com/anhadgill23/Midterm_project/blob/master/public/images/newvote_email.png?raw=true)
 
 ## Getting Started
 
