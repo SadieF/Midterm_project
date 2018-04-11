@@ -26,7 +26,7 @@ Combining user-focused, front-end development with back-end application, server,
 3. Run migrations using `npm run knex migrate:latest`
 4. Run database seed file using `npm run knex seed:run`
 5. Run the server using `npm run local`
-6. Visit `http://localhost:8080/`
+6. Visit `http://localhost:8080/wtf`
 
 ## Dependencies
 
